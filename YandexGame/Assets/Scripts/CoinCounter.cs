@@ -7,10 +7,15 @@ public class CoinCounter : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _coinPresenter;
 
     private int _coinInLevel;
-    
-    private void Start()
+
+    private void OnEnable()
     {
         playerMover.collideWithCoin += AddOneCoin;
+    }
+
+    private void OnDisable()
+    {
+        playerMover.collideWithCoin -= AddOneCoin;
     }
 
     private void AddOneCoin()

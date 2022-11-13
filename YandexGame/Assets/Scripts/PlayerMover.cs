@@ -13,6 +13,8 @@ public class PlayerMover : MonoBehaviour
     public delegate void CoinPicked();
     public event CoinPicked collideWithCoin;
 
+    public delegate void GatePicked();
+    public event GatePicked collideWithGate;
 
     private void Update()
     {
@@ -34,6 +36,10 @@ public class PlayerMover : MonoBehaviour
         if (other.gameObject.tag == GameNames.Coin.ToString())
         {
             collideWithCoin?.Invoke();
+        }
+        else if (other.gameObject.tag == GameNames.Gate.ToString())
+        {
+            collideWithGate?.Invoke();
         }
     }
 

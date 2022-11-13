@@ -22,6 +22,9 @@ public class GateSettings : MonoBehaviour
     [SerializeField] private GameObject _upLable;
     [SerializeField] private GameObject _downLable;
 
+    [SerializeField] private PlayerMover _playerMover;
+
+
     [SerializeField] private int _value;
 
     private List<Transform> _gateType;
