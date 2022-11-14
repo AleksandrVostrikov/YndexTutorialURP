@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 
@@ -13,7 +14,7 @@ public class PlayerMover : MonoBehaviour
     public delegate void CoinPicked();
     public event CoinPicked collideWithCoin;
 
-    public delegate void GatePicked();
+    public delegate void GatePicked(int value, GateDeformationType gateDeformationType);
     public event GatePicked collideWithGate;
 
     private void Update()
@@ -33,13 +34,16 @@ public class PlayerMover : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == GameNames.Coin.ToString())
+        if (other.gameObject.CompareTag(GameNames.Coin.ToString()))
         {
             collideWithCoin?.Invoke();
         }
-        else if (other.gameObject.tag == GameNames.Gate.ToString())
+        else if (other.gameObject.CompareTag(GameNames.Gate.ToString()))
         {
-            collideWithGate?.Invoke();
+            int val = int.Parse(other.gameObject.GetComponentInChildren<TextMeshProUGUI>().text);
+            Debug.Log(val);
+            GateDeformationType gate = other.gameObject.GetComponent<GateSettings>().CurrentGateType;
+            collideWithGate?.Invoke(val, gate);
         }
     }
 

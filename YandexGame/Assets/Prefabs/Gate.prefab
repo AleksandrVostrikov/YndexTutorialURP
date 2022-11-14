@@ -129,7 +129,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2421902697914253419
 RectTransform:
   m_ObjectHideFlags: 0
@@ -167,7 +167,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2421902697980289563
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1058,7 +1058,6 @@ MonoBehaviour:
   _shrinkLable: {fileID: 2421902697914253418}
   _upLable: {fileID: 2421902699277197739}
   _downLable: {fileID: 2421902697980289562}
-  _playerMover: {fileID: 0}
   _value: -2
 --- !u!65 &6321820604546835610
 BoxCollider:

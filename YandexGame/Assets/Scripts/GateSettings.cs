@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -22,14 +24,14 @@ public class GateSettings : MonoBehaviour
     [SerializeField] private GameObject _upLable;
     [SerializeField] private GameObject _downLable;
 
-    [SerializeField] private PlayerMover _playerMover;
-
-
     [SerializeField] private int _value;
 
-    private List<Transform> _gateType;
-
     const float _alpha = 0.5f;
+
+    public GateDeformationType CurrentGateType
+    {
+        get { return _deformationType; }
+    }
 
     private void OnValidate()
     {
@@ -48,7 +50,7 @@ public class GateSettings : MonoBehaviour
         {
             SetColor(_negativeColor);
         }
-        if (_deformationType == GateDeformationType.Height)
+        if (_deformationType == GateDeformationType.Width)
         {
             if (_value >= 0)
             {
