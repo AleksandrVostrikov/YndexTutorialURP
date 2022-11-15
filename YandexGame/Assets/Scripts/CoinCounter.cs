@@ -3,19 +3,19 @@ using UnityEngine;
 
 public class CoinCounter : MonoBehaviour 
 {
-    [SerializeField] private PlayerMover playerMover;
+    [SerializeField] private PlayerEventHandler _playerEventHandler;
     [SerializeField] private TextMeshProUGUI _coinPresenter;
 
     private int _coinInLevel;
 
     private void OnEnable()
     {
-        playerMover.collideWithCoin += AddOneCoin;
+        _playerEventHandler.collideWithCoin += AddOneCoin;
     }
 
     private void OnDisable()
     {
-        playerMover.collideWithCoin -= AddOneCoin;
+        _playerEventHandler.collideWithCoin -= AddOneCoin;
     }
 
     private void AddOneCoin()

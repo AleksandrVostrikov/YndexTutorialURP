@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GateHandler : MonoBehaviour
 {
-    [SerializeField] private PlayerMover _playerMover;
+    [SerializeField] private PlayerEventHandler _playerMover;
     [SerializeField] private PlayerModifer _modifer;
 
     private void OnEnable()

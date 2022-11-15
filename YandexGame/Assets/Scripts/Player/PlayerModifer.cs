@@ -23,10 +23,17 @@ public class PlayerModifer : MonoBehaviour
 
     public void AddHeight(int gateValue)
     {
-        float offsetY = gateValue * _heightMultiplier + 0.17f;
-        //_topSpine.position = _bottomSpine.position + new Vector3(0, offsetY, 0);
-        _topSpine.position += new Vector3(0, offsetY, 0);
-        _colliderTransform.localScale = new Vector3(1, 2f + _height * _heightMultiplier, 1);
+        float offsetX = _topSpine.localPosition.x - gateValue * _heightMultiplier; 
+        _topSpine.localPosition = new Vector3(offsetX, _topSpine.localPosition.y, _topSpine.localPosition.z);
+        if (gateValue > 0)
+        {
+            _colliderTransform.localScale = new Vector3(1, _colliderTransform.localScale.y - offsetX, 1);
+        }
+        else
+        {
+            _colliderTransform.localScale = new Vector3(1, _colliderTransform.localScale.y + offsetX, 1);
+        }
+        
     }
 
 

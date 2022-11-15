@@ -6,16 +6,9 @@ public class PlayerMover : MonoBehaviour
 {
     [SerializeField] private float _speed;
     [SerializeField] private Animator _animator;
-    
 
     private float _previousMousPosition;
     private float _eulerAngleY;
-
-    public delegate void CoinPicked();
-    public event CoinPicked collideWithCoin;
-
-    public delegate void GatePicked(int value, GateDeformationType gateDeformationType);
-    public event GatePicked collideWithGate;
 
     private void Update()
     {
@@ -30,21 +23,6 @@ public class PlayerMover : MonoBehaviour
             SetAngle();
         }
         SetAnimation();
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag(GameNames.Coin.ToString()))
-        {
-            collideWithCoin?.Invoke();
-        }
-        else if (other.gameObject.CompareTag(GameNames.Gate.ToString()))
-        {
-            int val = int.Parse(other.gameObject.GetComponentInChildren<TextMeshProUGUI>().text);
-            Debug.Log(val);
-            GateDeformationType gate = other.gameObject.GetComponent<GateSettings>().CurrentGateType;
-            collideWithGate?.Invoke(val, gate);
-        }
     }
 
     private void SetPosition()
