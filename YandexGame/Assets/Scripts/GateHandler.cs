@@ -7,16 +7,6 @@ public class GateHandler : MonoBehaviour
     [SerializeField] private PlayerEventHandler _playerMover;
     [SerializeField] private PlayerModifer _modifer;
 
-    private void OnEnable()
-    {
-        _playerMover.collideWithGate += ModifyPlayer;
-    }
-
-    private void OnDisable()
-    {
-        _playerMover.collideWithGate -= ModifyPlayer;
-    }
-
     public void ModifyPlayer(int value, GateDeformationType gateDeformationType)
     {
         if (gateDeformationType == GateDeformationType.Width)

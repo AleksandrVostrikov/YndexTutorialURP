@@ -8,17 +8,7 @@ public class CoinCounter : MonoBehaviour
 
     private int _coinInLevel;
 
-    private void OnEnable()
-    {
-        _playerEventHandler.collideWithCoin += AddOneCoin;
-    }
-
-    private void OnDisable()
-    {
-        _playerEventHandler.collideWithCoin -= AddOneCoin;
-    }
-
-    private void AddOneCoin()
+    public void AddOneCoin()
     {
         _coinInLevel++;
         CoinInLevel = _coinInLevel;
